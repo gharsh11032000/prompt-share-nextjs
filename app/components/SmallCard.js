@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
-import { NEXT_URL } from "../config";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -25,7 +24,7 @@ export default function SmallCard({ prompt }) {
         return;
       }
 
-      const data = await axios.delete(`${NEXT_URL}/delete/${id}`);
+      const data = await axios.delete(`/api/delete/${id}`);
 
       if (data.status === 200) {
         toast.success(data.data.message);

@@ -2,7 +2,6 @@
 
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
-import { NEXT_URL } from "../config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
@@ -40,7 +39,7 @@ export default function CreatePage() {
 
       setLoading(true);
       const data = await axios.post(
-        `${NEXT_URL}/create`,
+        `/api/create`,
         {
           data: {
             prompt: promptValue,

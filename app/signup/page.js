@@ -5,7 +5,6 @@ import { useState, useContext, useEffect } from "react";
 import AuthContext from "../context/AuthContext";
 import ButtonGoogle from "../components/ButtonGoogle";
 import { toast } from "react-hot-toast";
-import { NEXT_URL } from "../config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -37,7 +36,7 @@ export default function SignUpPage() {
       setLoading(true);
 
       const data = await axios.post(
-        `${NEXT_URL}/signup`,
+        `/api/signup`,
         {
           identifier: email,
           password,

@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import ButtonGoogle from "../components/ButtonGoogle";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { NEXT_URL } from "../config";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -33,7 +32,7 @@ export default function SignInPage() {
       }
       setLoading(true);
       const data = await axios.post(
-        `${NEXT_URL}/signin`,
+        `/api/signin`,
         {
           identifier: email,
           password,

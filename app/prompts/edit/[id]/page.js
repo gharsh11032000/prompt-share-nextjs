@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import AuthContext from "@/app/context/AuthContext";
-import { API_URL, NEXT_URL } from "@/app/config";
+import { API_URL } from "@/app/config";
 
 export const generateStaticParams = async () => {
   const prompts = await axios.get(`${API_URL}/prompts`);
@@ -69,7 +69,7 @@ export default function EditPage({ params: { id } }) {
         return;
       }
       const data = await axios.put(
-        `${NEXT_URL}/edit/${id}`,
+        `/api/edit/${id}`,
         {
           data: {
             prompt: promptValue,

@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import AuthContext from "../context/AuthContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaPlus, FaUser } from "react-icons/fa";
 import { toast } from "react-hot-toast";
-import { NEXT_URL } from "../config";
 import axios from "axios";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -19,7 +18,7 @@ export default function SignInOutButtons() {
   const handleSignOut = async () => {
     try {
       setLoading(true);
-      const data = await axios.get(`${NEXT_URL}/signout`);
+      const data = await axios.get(`/api/signout`);
 
       if (data.status === 200) {
         saveUser(null);
