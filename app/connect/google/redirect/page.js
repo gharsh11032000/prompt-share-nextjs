@@ -1,15 +1,15 @@
 "use client";
 
 import { API_URL } from "@/app/config";
-import AuthContext from "@/app/context/AuthContext";
+import { useAuth } from "@/app/context/AuthContext";
 import axios from "axios";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
 export default function Redirect({ searchParams }) {
-  const { saveUser } = useContext(AuthContext);
+  const { saveUser } = useAuth();
   const access_token = searchParams.access_token;
   const router = useRouter();
 

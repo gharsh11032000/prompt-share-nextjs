@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useContext, useEffect } from "react";
-import AuthContext from "../context/AuthContext";
+import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 import ButtonGoogle from "../components/ButtonGoogle";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -17,7 +17,7 @@ export default function SignUpPage() {
 
   const router = useRouter();
 
-  const { saveUser, user } = useContext(AuthContext);
+  const { saveUser, user } = useAuth();
 
   useEffect(() => {
     if (user) {

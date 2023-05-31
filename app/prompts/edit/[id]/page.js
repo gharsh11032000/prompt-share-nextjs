@@ -1,10 +1,10 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
-import AuthContext from "@/app/context/AuthContext";
+import { useAuth } from "@/app/context/AuthContext";
 import { API_URL } from "@/app/config";
 
 export const generateStaticParams = async () => {
@@ -23,7 +23,7 @@ export default function EditPage({ params: { id } }) {
   const [promptValue, setPromptValue] = useState("");
   const [categoryValue, setCategoryValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {

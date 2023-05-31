@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useContext, useEffect } from "react";
-import AuthContext from "../context/AuthContext";
+import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
 import ButtonGoogle from "../components/ButtonGoogle";
 import { toast } from "react-hot-toast";
@@ -13,7 +13,7 @@ export default function SignInPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { user, saveUser } = useContext(AuthContext);
+  const { user, saveUser } = useAuth();
 
   const router = useRouter();
 

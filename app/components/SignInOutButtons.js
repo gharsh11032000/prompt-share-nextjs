@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import AuthContext from "../context/AuthContext";
-import { useContext, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaPlus, FaUser } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 export default function SignInOutButtons() {
   const [loading, setLoading] = useState(false);
-  const { user, saveUser } = useContext(AuthContext);
+  const { user, saveUser } = useAuth();
 
   const router = useRouter();
   const path = usePathname();

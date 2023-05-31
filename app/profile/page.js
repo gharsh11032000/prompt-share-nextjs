@@ -1,7 +1,7 @@
 "use client";
 
-import { useContext, useEffect } from "react";
-import AuthContext from "../context/AuthContext";
+import { useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa";
@@ -12,7 +12,7 @@ import useSWR from "swr";
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 function ProfilePage() {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const router = useRouter();
 
