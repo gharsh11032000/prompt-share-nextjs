@@ -13,15 +13,13 @@ export default function SignInPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { user, saveUser, checkUserLoggedIn } = useAuth();
+  const { user, saveUser } = useAuth();
 
   const router = useRouter();
 
   useEffect(() => {
     if (user) {
       router.push("/");
-    } else {
-      checkUserLoggedIn();
     }
   }, []);
 
