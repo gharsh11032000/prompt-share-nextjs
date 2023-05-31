@@ -28,7 +28,7 @@ export default function Redirect({ searchParams }) {
           Cookies.set("token", data.data.jwt, {
             expires: 7,
             path: "/",
-            sameSite: "strict",
+            sameSite: "None",
             secure: process.env.NODE_ENV !== "development",
           });
           router.push("/");

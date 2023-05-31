@@ -8,7 +8,7 @@ export async function GET() {
           httpOnly: true,
           secure: process.env.NODE_ENV !== "development",
           maxAge: new Date(0),
-          sameSite: "strict",
+          sameSite: "None",
           path: "/",
         }),
       },
