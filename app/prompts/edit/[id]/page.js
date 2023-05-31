@@ -100,7 +100,7 @@ export default function EditPage({ params: { id } }) {
   return (
     <div className="px-4 py-16">
       <div className="flex flex-col gap-10 items-center justify-center">
-        <h1 className="text-5xl font-bold">Create a Prompt</h1>
+        <h1 className="text-5xl font-bold">Edit Prompt</h1>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 items-center w-96 resize-none"
