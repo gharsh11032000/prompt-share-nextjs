@@ -10,6 +10,7 @@ export async function GET(request) {
     const data = await axios.get(`${API_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Cache-Control": "no-cache",
       },
     });
 
