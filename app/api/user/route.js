@@ -17,6 +17,9 @@ export async function GET(request) {
     if (data.statusText === "OK") {
       return new Response(JSON.stringify(data.data), {
         status: 200,
+        headers: {
+          "Cache-Control": "no-cache",
+        },
       });
     }
   } catch (error) {
