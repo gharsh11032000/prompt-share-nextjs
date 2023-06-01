@@ -23,9 +23,7 @@ export function AuthProvider({ children }) {
         },
       });
 
-      console.log(data);
-
-      if (data.statusText === "OK") {
+      if (data.status === 200) {
         setUser(data.data);
         router.push("/");
       }
