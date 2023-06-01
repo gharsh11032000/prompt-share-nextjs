@@ -28,8 +28,8 @@ export default function Redirect({ searchParams }) {
           Cookies.set("token", data.data.jwt, {
             expires: 7,
             path: "/",
-            sameSite: "None",
-            secure: true,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV !== "development",
           });
           router.push("/");
         }

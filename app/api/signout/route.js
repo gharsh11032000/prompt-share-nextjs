@@ -5,10 +5,11 @@ export async function GET() {
     return new Response(JSON.stringify({ message: "Sign out succesfully!" }), {
       headers: {
         "Set-Cookie": cookie.serialize("token", "", {
-          secure: true,
+          secure: process.env.NODE_ENV !== "development",
           maxAge: new Date(0),
-          sameSite: "None",
+          sameSite: "strict",
           path: "/",
+          httpOnly: true,
         }),
       },
       status: 200,
