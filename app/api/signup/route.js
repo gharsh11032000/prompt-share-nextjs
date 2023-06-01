@@ -25,7 +25,7 @@ export async function POST(request) {
         status: 200,
         headers: {
           "Set-Cookie": cookie.serialize("token", data.data.jwt, {
-            secure: process.env.NODE_ENV !== "development",
+            secure: true,
             maxAge: 60 * 60 * 24 * 7,
             sameSite: "None",
             path: "/",

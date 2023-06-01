@@ -15,7 +15,7 @@ export async function POST(request) {
       return new Response(JSON.stringify(data.data.user), {
         headers: {
           "Set-Cookie": cookie.serialize("token", data.data.jwt, {
-            secure: process.env.NODE_ENV !== "development",
+            secure: true,
             maxAge: 60 * 60 * 24 * 7, // 1 week
             sameSite: "None",
             path: "/",

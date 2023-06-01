@@ -29,7 +29,7 @@ export default function Redirect({ searchParams }) {
             expires: 7,
             path: "/",
             sameSite: "None",
-            secure: process.env.NODE_ENV !== "development",
+            secure: true,
           });
           router.push("/");
         }
