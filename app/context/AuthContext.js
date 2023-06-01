@@ -17,7 +17,13 @@ export function AuthProvider({ children }) {
 
   const checkUserLoggedIn = async () => {
     try {
-      const data = await axios.get(`/api/user`);
+      const data = await axios.get(`/api/user`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(data);
 
       if (data.statusText === "OK") {
         setUser(data.data);
