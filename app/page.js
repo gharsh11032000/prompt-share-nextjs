@@ -38,7 +38,7 @@ export default async function Home() {
         </>
       ) : (
         <>
-          <h1 className="text-4xl font-bold text-center mt-10 mb-4">
+          <h1 className="text-4xl font-bold text-center mt-10 mb-4 fade-in">
             Latest Prompts
           </h1>
           <CardsContainer prompts={fetchedPrompts} />

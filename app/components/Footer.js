@@ -3,10 +3,14 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <footer className="footer items-center mt-auto bg-transparent p-4 bg-neutral">
-        <div className="items-center grid-flow-col">
-          <Link href={"/"} className="btn btn-ghost normal-case text-xl">
-            PromptVerse
+      <footer className="footer items-center justify-items-center sm:justify-items-start mt-8 sm:mt-auto bg-transparent p-4 bg-neutral ">
+        <div className="items-center gap-0 sm:gap-1 grid-flow-col grid-rows-2 justify-items-center sm:grid-rows-1">
+          <Link
+            href={"/"}
+            className="btn btn-ghost normal-case text-lg md:text-xl"
+          >
+            Prompt Verse
+            <span className="text-primary">.</span>
           </Link>
           <p>Copyright © 2023 - All right reserved</p>
         </div>

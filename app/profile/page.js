@@ -45,7 +45,7 @@ function ProfilePage() {
 
         {prompts && prompts.length > 0 ? (
           <>
-            <h3 className="text-2xl font-bold">My Prompts</h3>
+            <h3 className="text-2xl font-bold">My Prompt's 💪</h3>
             <div className="flex justify-center flex-wrap gap-4">
               {prompts
                 .sort((a, b) => {
@@ -58,7 +58,9 @@ function ProfilePage() {
           </>
         ) : (
           <div className="flex flex-col items-center gap-4 mt-4">
-            <p className="text-xl">You have not created any prompts yet 😔</p>
+            <p className="text-md md:text-lg text-center">
+              You have not created any prompts yet 😔
+            </p>
             <Link href="/create">
               <button className="btn btn-primary">
                 <FaPlus className="mr-2" />

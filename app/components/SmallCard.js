@@ -40,7 +40,7 @@ export default function SmallCard({ prompt }) {
 
   return (
     <>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-80 sm:w-96 bg-base-100 shadow-xl fade-in">
         <div className="card-body justify-between gap-4">
           <div className="flex flex-col gap-4">
             <Link

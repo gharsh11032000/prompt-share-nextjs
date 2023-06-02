@@ -29,7 +29,7 @@ export default async function SearchPage({ searchParams: { search } }) {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 mb-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mt-10 mb-4">
         Search Results for "{search}"
       </h1>
       {prompts.length === 0 && (

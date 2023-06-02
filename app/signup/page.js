@@ -35,6 +35,11 @@ export default function SignUpPage() {
         return toast.error("Passwords not matched");
       }
 
+      if (username === "" || email === "" || password === "") {
+        toast.error("Please fill in all fields");
+        return;
+      }
+
       setLoading(true);
 
       const data = await axios.post(
@@ -75,12 +80,15 @@ export default function SignUpPage() {
         initial="hidden"
         className="flex flex-col gap-10 items-center justify-center"
       >
-        <motion.h1 variants={fadeIn} className="text-5xl font-bold">
-          Welcome to PromptVerse!
+        <motion.h1
+          variants={fadeIn}
+          className="text-3xl sm:text-4xl text-center font-bold"
+        >
+          Welcome to Prompt Verse!
         </motion.h1>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 items-center w-96 resize-none"
+          className="flex flex-col gap-4 items-center w-80 sm:w-96 resize-none"
         >
           <motion.input
             variants={fadeIn}

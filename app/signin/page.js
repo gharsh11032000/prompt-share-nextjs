@@ -69,12 +69,15 @@ export default function SignInPage() {
           animate="show"
           className="flex flex-col gap-10 items-center justify-center"
         >
-          <motion.h1 variants={fadeIn} className="text-5xl font-bold">
+          <motion.h1
+            variants={fadeIn}
+            className="text-3xl sm:text-4xl font-bold text-center"
+          >
             Welcome back!
           </motion.h1>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 items-center w-96 resize-none"
+            className="flex flex-col gap-4 items-center w-80 sm:w-96 resize-none"
           >
             <motion.input
               variants={fadeIn}

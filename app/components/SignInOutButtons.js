@@ -56,7 +56,9 @@ export default function SignInOutButtons() {
             onClick={handleSignOut}
           >
             <FaSignOutAlt />
-            <span>{loading ? "Signing Out..." : "Sign Out"}</span>
+            <span className="hidden md:flex">
+              {loading ? "Signing Out..." : "Sign Out"}
+            </span>
           </button>
         </div>
       ) : (
