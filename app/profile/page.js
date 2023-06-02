@@ -22,7 +22,11 @@ function ProfilePage() {
     }
   }, []);
 
-  const { data: prompts, error } = useSWR(`/api/prompts/me`, fetcher);
+  const {
+    data: prompts,
+    error,
+    isLoading,
+  } = useSWR(`/api/prompts/me`, fetcher);
 
   return (
     user && (

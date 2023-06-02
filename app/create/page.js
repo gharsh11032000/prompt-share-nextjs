@@ -5,6 +5,8 @@ import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInUp } from "../config/animation";
 
 export default function CreatePage() {
   const [promptValue, setPromptValue] = useState("");
@@ -69,22 +71,32 @@ export default function CreatePage() {
 
   return (
     <div className="px-4 py-16">
-      <div className="flex flex-col gap-10 items-center justify-center">
-        <h1 className="text-3xl md:text-4xl text-center font-bold">
+      <motion.div
+        variants={fadeInUp}
+        animate="show"
+        initial="hidden"
+        className="flex flex-col gap-10 items-center justify-center"
+      >
+        <motion.h1
+          variants={fadeIn}
+          className="text-3xl md:text-4xl text-center font-bold"
+        >
           Create a prompt 🥳
-        </h1>
+        </motion.h1>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 items-center w-80 sm:w-96 resize-none"
         >
-          <textarea
+          <motion.textarea
+            variants={fadeIn}
             className="textarea  w-full resize-none h-48"
             placeholder="Write your prompt here..."
             name="prompt"
             value={promptValue}
             onChange={(e) => setPromptValue(e.target.value)}
-          ></textarea>
-          <input
+          ></motion.textarea>
+          <motion.input
+            variants={fadeIn}
             type="text"
             placeholder="Enter a category"
             className="input  w-full"
@@ -92,11 +104,13 @@ export default function CreatePage() {
             name="category"
             onChange={(e) => setCategoryValue(e.target.value)}
           />
-          <button className="btn btn-primary w-full">
-            {loading ? "Creating Prompt..." : "Create Prompt"}
-          </button>
+          <motion.button variants={fadeIn} className="w-full">
+            <button className="btn btn-primary w-full">
+              {loading ? "Creating Prompt..." : "Create Prompt"}
+            </button>
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }

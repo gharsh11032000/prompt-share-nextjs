@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CopyButton from "./CopyButton";
+import { FaRobot } from "react-icons/fa";
 
 export default function Card({ prompt }) {
   const { prompt: promptText, category } = prompt.attributes;
@@ -12,14 +13,26 @@ export default function Card({ prompt }) {
       {prompt && (
         <div className="card sm:w-96 w-80 bg-base-100 min-h-full shadow-xl fade-in">
           <div className="card-body gap-4">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-2">
               <Link
                 href={`/search?search=${category}`}
-                className="badge badge-primary flex-grow-0"
+                className="badge dark:bg-base-200 dark:border-base-200 flex-grow-0"
               >
                 {category}
               </Link>
-              <CopyButton text={promptText} />
+              <div className="flex items-center gap-2">
+                {/* Copy */}
+                <CopyButton text={promptText} />
+                {/* Bot */}
+                <Link
+                  href={`https://www.perplexity.ai/search?q=${promptText}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-primary dark:hover:bg-base-300 rounded-full cursor-pointer active:scale-90 transition-all"
+                >
+                  <FaRobot className="text-primary-content w-5 h-5" />
+                </Link>
+              </div>
             </div>
             <p>{promptText}</p>
             <div className="card-actions flex justify-between items-center mt-4">

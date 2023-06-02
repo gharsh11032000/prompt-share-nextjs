@@ -45,7 +45,7 @@ export default function SmallCard({ prompt }) {
           <div className="flex flex-col gap-4">
             <Link
               href={`/search?search=${category}`}
-              className="badge badge-primary"
+              className="badge dark:bg-base-200 dark:border-base-200 flex-grow-0"
             >
               {category}
             </Link>

@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { useAuth } from "@/app/context/AuthContext";
 import { API_URL } from "@/app/config";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInUp } from "@/app/config/animation";
 
 export const generateStaticParams = async () => {
   const prompts = await axios.get(`${API_URL}/prompts`);
@@ -99,22 +101,32 @@ export default function EditPage({ params: { id } }) {
 
   return (
     <div className="px-4 py-16">
-      <div className="flex flex-col gap-10 items-center justify-center">
-        <h1 className="text-3xl  sm:text-4xl font-bold text-center">
+      <motion.div
+        variants={fadeInUp}
+        animate="show"
+        initial="hidden"
+        className="flex flex-col gap-10 items-center justify-center"
+      >
+        <motion.h1
+          variants={fadeIn}
+          className="text-3xl  sm:text-4xl font-bold text-center"
+        >
           Edit Prompt ✍️
-        </h1>
+        </motion.h1>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 items-center w-80 sm:w-96 resize-none"
         >
-          <textarea
+          <motion.textarea
+            variants={fadeIn}
             className="textarea  w-full resize-none h-48"
             placeholder="Write your prompt here..."
             name="prompt"
             value={promptValue}
             onChange={(e) => setPromptValue(e.target.value)}
-          ></textarea>
-          <input
+          ></motion.textarea>
+          <motion.input
+            variants={fadeIn}
             type="text"
             placeholder="Enter a category"
             className="input  w-full"
@@ -122,11 +134,13 @@ export default function EditPage({ params: { id } }) {
             name="category"
             onChange={(e) => setCategoryValue(e.target.value)}
           />
-          <button className="btn btn-primary w-full">
-            {loading ? "Updating Prompt..." : "Update Prompt"}
-          </button>
+          <motion.div variants={fadeIn} className="w-full">
+            <button className="btn btn-primary w-full">
+              {loading ? "Updating Prompt..." : "Update Prompt"}
+            </button>
+          </motion.div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }
