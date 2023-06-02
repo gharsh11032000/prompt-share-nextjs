@@ -7,8 +7,6 @@ export async function GET(request) {
     const cookieStore = cookies();
     const token = cookieStore.get("token").value;
 
-    console.log(token);
-
     const data = await axios.get(`${API_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${token}`,

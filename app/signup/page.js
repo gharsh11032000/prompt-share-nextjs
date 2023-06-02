@@ -7,6 +7,8 @@ import ButtonGoogle from "../components/ButtonGoogle";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeIn } from "../config/animation";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -67,13 +69,21 @@ export default function SignUpPage() {
 
   return (
     <div className="px-4 py-16">
-      <div className="flex flex-col gap-10 items-center justify-center">
-        <h1 className="text-5xl font-bold">Welcome to PromptVerse!</h1>
+      <motion.div
+        variants={fadeInUp}
+        animate="show"
+        initial="hidden"
+        className="flex flex-col gap-10 items-center justify-center"
+      >
+        <motion.h1 variants={fadeIn} className="text-5xl font-bold">
+          Welcome to PromptVerse!
+        </motion.h1>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 items-center w-96 resize-none"
         >
-          <input
+          <motion.input
+            variants={fadeIn}
             type="text"
             placeholder="Username"
             className="input w-full"
@@ -81,7 +91,8 @@ export default function SignUpPage() {
             name="username"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <input
+          <motion.input
+            variants={fadeIn}
             type="email"
             placeholder="Email"
             className="input  w-full"
@@ -89,7 +100,8 @@ export default function SignUpPage() {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <motion.input
+            variants={fadeIn}
             type="password"
             placeholder="Password"
             className="input w-full"
@@ -97,7 +109,8 @@ export default function SignUpPage() {
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
+          <motion.input
+            variants={fadeIn}
             type="password"
             placeholder="Confirm Password"
             className="input w-full"
@@ -105,11 +118,16 @@ export default function SignUpPage() {
             name="confirm-password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary w-full">
-            {loading ? "Signing up..." : "Sign up"}
-          </button>
+          <motion.div variants={fadeIn} className="w-full">
+            <button type="submit" className="btn btn-primary w-full">
+              {loading ? "Signing up..." : "Sign up"}
+            </button>
+          </motion.div>
         </form>
-        <div className="flex flex-col gap-6 items-center justify-center">
+        <motion.div
+          variants={fadeIn}
+          className="flex flex-col gap-6 items-center justify-center"
+        >
           <div className="flex items-center justify-between gap-2">
             <p>Already have an account?</p>
             <Link href={"/signin"} className="link link-primary">
@@ -117,8 +135,8 @@ export default function SignUpPage() {
             </Link>
           </div>
           <ButtonGoogle>Sign up with Google</ButtonGoogle>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
