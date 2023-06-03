@@ -5,6 +5,8 @@ import { API_URL, HOMEPAGE_PAGINATION_LIMIT } from "./config";
 import Link from "next/link";
 import axios from "axios";
 
+export const revalidate = 10;
+
 async function getPrompts() {
   const query = QueryString.stringify({
     sort: ["createdAt:DESC"],
@@ -15,9 +17,7 @@ async function getPrompts() {
     },
   });
 
-  const data = await axios.get(`${API_URL}/prompts?${query}`, {
-    next: { revalidate: 10 },
-  });
+  const data = await axios.get(`${API_URL}/prompts?${query}`);
 
   return data.data.data;
 }

@@ -5,6 +5,8 @@ import { PER_PAGE } from "@/app/config";
 import axios from "axios";
 import Pagination from "@/app/components/Pagination";
 
+export const revalidate = 60;
+
 export const generateStaticParams = async () => {
   const count = await axios.get(`${API_URL}/prompts/count`);
 
@@ -29,9 +31,7 @@ async function getPrompts(page) {
     },
   });
 
-  const prompts = await axios.get(`${API_URL}/prompts?${query}`, {
-    next: { revalidate: 10 },
-  });
+  const prompts = await axios.get(`${API_URL}/prompts?${query}`);
 
   const count = await axios.get(`${API_URL}/prompts/count`, {
     next: {
