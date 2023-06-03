@@ -3,4 +3,4 @@ export const API_URL =
 
 export const PER_PAGE = 15;
 
-export const HOMEPAGE_PAGINATION_LIMIT = 10;
+export const HOMEPAGE_PAGINATION_LIMIT = 9;
